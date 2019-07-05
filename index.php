@@ -86,7 +86,6 @@ $app->get("/admin/users/:iduser", function($iduser){
 
 $app->post("/admin/users/create", function(){
 	User::verifyLogin();
-	var_dump($_POST);
 	$user = new User();
 	$_POST["inadmin"] = (isset($_POST["inadmin"]))?1:0;
 	$user->setData($_POST);
@@ -149,7 +148,18 @@ $app->get("/admin/forgot/reset", function(){
 
 		$user = new User();
 		$user->get((int)$forgot["iduser"]);
-		$user->setPassword($_POST["passwrd"]);
+
+		$password = password_hash($_POST["passwrd"], PASSWORD_DEFAULT, [
+			"cost"=>12
+		]);
+
+		$user->setPassword($password);
+
+		$page = new PageAdmin([
+			"header"=>false,
+			"footer"=>false,
+		]);
+		$page->setTpl("forgot-reset-sucess");
 	});
 
 $app->run();
