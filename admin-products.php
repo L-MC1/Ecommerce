@@ -45,7 +45,7 @@ $app->get("/admin/products/:idproduct", function($idproduct){
 
 	$page = new PageAdmin();
 	$page->setTpl("products-update",[
-		'product'=>$product->getValues();
+		'product'=>$product->getValues()
 	]);
 });
 
