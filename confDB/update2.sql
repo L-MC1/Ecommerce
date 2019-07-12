@@ -134,29 +134,6 @@ INSERT INTO `tb_categories` VALUES (5,'Apple','2019-07-08 14:14:21'),(6,'Motorol
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_categoriesproducts`
---
-
-DROP TABLE IF EXISTS `tb_categoriesproducts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_categoriesproducts` (
-  `idcategory` int(11) NOT NULL,
-  `idproduct` int(11) NOT NULL,
-  PRIMARY KEY (`idcategory`,`idproduct`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_categoriesproducts`
---
-
-LOCK TABLES `tb_categoriesproducts` WRITE;
-/*!40000 ALTER TABLE `tb_categoriesproducts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_categoriesproducts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tb_orders`
 --
 
@@ -295,7 +272,7 @@ CREATE TABLE `tb_productscategories` (
 
 LOCK TABLES `tb_productscategories` WRITE;
 /*!40000 ALTER TABLE `tb_productscategories` DISABLE KEYS */;
-INSERT INTO `tb_productscategories` VALUES (8,1),(8,5),(8,6),(8,7),(8,8),(8,9);
+INSERT INTO `tb_productscategories` VALUES (6,5),(6,6),(8,1),(8,5),(8,6),(8,7),(8,8),(8,9);
 /*!40000 ALTER TABLE `tb_productscategories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -637,4 +614,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-11 15:34:04
+-- Dump completed on 2019-07-12 14:37:52
