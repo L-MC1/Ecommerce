@@ -16,7 +16,7 @@
             <div class="col-md-12">
                 <div class="product-content-right">
                     <div class="product-breadcroumb">
-                        <a href="/">Home</a>
+                        <a href="/ecommerce/">Home</a>
                         <a href=""><?php echo htmlspecialchars( $product["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
                     </div>
                     
@@ -36,9 +36,9 @@
                                     <ins>R$ <?php echo formatPrice($product["vlprice"]); ?></ins>
                                 </div>    
                                 
-                                <form action="" class="cart">
+                                <form action="/ecommerce/views/cart/<?php echo htmlspecialchars( $product["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add" class="cart">
                                     <div class="quantity">
-                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="qtd" min="1" step="1">
                                     </div>
                                     <button class="add_to_cart_button" type="submit">Comprar</button>
                                 </form>   

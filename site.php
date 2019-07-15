@@ -41,7 +41,7 @@ $app->get("/views/categories/:idcategory", function($idcategory){
 		]);
 	});
 
-$app->get("/views/products/:desurl", function($desurl){
+$app->get("/res/site/img/products/:desurl", function($desurl){
 
 	$product = new Product();
 	$product->getFromURL($desurl);
@@ -58,7 +58,51 @@ $app->get("/views/cart", function(){
 	$cart = Cart::getFromSession();
 
 	$page = new Page();
-	$page->setTpl("cart");
+	$page->setTpl("cart",[
+		'cart'=>$cart->getValues(),
+		'products'=>$cart->getProducts()
+	]);
+});
+
+$app->get("/views/cart/:idproduct/add", function($idproduct){
+
+	$product = new Product();
+	$product->get((int)$idproduct);
+
+	$cart  =Cart::getFromSession();	
+
+	$qtd = (isset($_GET['qtd'])) ? (int)$_GET['qtd'] : 1;
+
+	for ($i =0; $i < $qtd; $i++){
+		$cart->addProduct($product);
+	}
+
+	header("Location: /ecommerce/views/cart");
+	exit;
+});
+
+$app->get("/views/cart/:idproduct/minus", function($idproduct){
+
+	$product = new Product();
+	$product->get((int)$idproduct);
+
+	$cart  =Cart::getFromSession();
+	$cart->removeProduct($product);
+
+	header("Location: /ecommerce/views/cart");
+	exit;
+});
+
+$app->get("/views/cart/:idproduct/remove", function($idproduct){
+
+	$product = new Product();
+	$product->get((int)$idproduct);
+
+	$cart  =Cart::getFromSession();
+	$cart->removeProduct($product, true);
+
+	header("Location: /ecommerce/views/cart");
+	exit;
 });
 
  ?>
