@@ -69,9 +69,14 @@ class User extends Model {
 	}
 
 	public static function verifyLogin($inadmin = true){
-		if (USER::checkLogin($inadmin)){
+		if (!USER::checkLogin($inadmin)){
+			if($inadmin){
 			header("Location: /ecommerce/admin/login");
+		} else{
+			header("Location: /ecommerce/login");
+		}
 			exit;
+		
 		}
 	}
 
