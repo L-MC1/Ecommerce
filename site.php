@@ -154,4 +154,12 @@ $app->post("/views/login", function(){
 
 });
 
+$app->get("/views/logout", function(){
+
+	User::logout();
+
+	header("Location: /ecommerce/views/login");
+	exit;
+});
+
  ?>
