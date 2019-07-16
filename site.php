@@ -133,4 +133,25 @@ $app->get("/views/checkout", function(){
 	]);
 });
 
+$app->get("/views/login", function(){
+
+	$page = new Page();
+	$page->setTpl("login",[
+		'error'=>User::getError()
+	]);
+});
+
+$app->post("/views/login", function(){
+
+	try{
+		User::login($_POST['login'], $_POST['password']);
+	}	catch(Exception $e){
+		User::setError($e->getMessage());
+	}
+
+	header("Location: /ecommerce/views/checkout");
+	exit;
+
+});
+
  ?>

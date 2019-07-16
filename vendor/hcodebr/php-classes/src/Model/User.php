@@ -9,6 +9,10 @@ class User extends Model {
 
 	const SESSION = "User";
 	const SECRET = "HcodePhp7_Secret";
+	const SECRET_IV = "HcodePhp7_Secret_IV";
+	const ERROR = "UserError";
+	const ERROR_REGISTER = "UserErrorRegister";
+	const SUCCESS = "UserSucesss";
 
 	public static function getFromSession(){
 
@@ -45,7 +49,7 @@ class User extends Model {
 
 	public static function login($login, $password){
 		$sql = new Sql();
-		$results = $sql->select("SELECT * FROM tb_users WHERE deslogin = :LOGIN", array(
+		$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b ON a.idperson = b.idperson WHERE a.deslogin = :LOGIN", array(
 			":LOGIN"=>$login
 		));
 		if (count($results) === 0) {
@@ -73,7 +77,7 @@ class User extends Model {
 			if($inadmin){
 			header("Location: /ecommerce/admin/login");
 		} else{
-			header("Location: /ecommerce/login");
+			header("Location: /ecommerce/views/login");
 		}
 			exit;
 		
@@ -111,6 +115,11 @@ class User extends Model {
 			":iduser"=>$iduser
 		));
 		$this->setData($results[0]);
+
+		/*
+		$data['desperson'] = utf8_encode($data['desperson']);
+		$this-setData($data);
+		*/
 	}
 
 	public function update() {
@@ -155,7 +164,7 @@ class User extends Model {
 				$dataRecovery = $results2[0];
 				base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_128, User::SECRET, $dataRecovery["idrecovery"], MCRYPT_MODE_ECB));
 				$link = "/ecommerce/admin/forgot/reset?code=$code";
-				$mailer = new Mailer($data["desemail"], $data["desperson"], "Redefinir senha da Hcode store", "forgot", array(
+				$mailer = new Mailer($data['desemail'], $data['desperson'], "Redefinir senha da Hcode store", "forgot", array(
 					"name"=>$data["desperson"],
 					"link"=>$link
 				));
@@ -192,6 +201,23 @@ class User extends Model {
 			":password"=>$password,
 			":iduser"=>$this->getiduser()
 		));
+	}
+	public static function setError($msg){
+		$_SESSION[User::ERROR] = $msg;
+	}
+
+	public static function getError(){
+		$msg = (isset($_SESSION[User::ERROR]) && $_SESSION[User::ERROR]) ? $_SESSION[User::ERROR] : '';
+		User::clearError();
+		return $msg;
+	}
+
+	public static function clearError(){
+		$_SESSION[User::ERROR] = NULL;
+	}
+
+	public static function setErrorRegister($msg){
+		$_SESSION[User::ERROR_REGISTER] = $msg;
 	}
 }
 
