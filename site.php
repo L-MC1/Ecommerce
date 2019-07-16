@@ -164,6 +164,8 @@ $app->get("/views/logout", function(){
 	exit;
 });
 
+//cadastro de usuario
+
 $app->post("/views/register", function(){
 
 	$_SESSION['registerValues'] = $_POST;
@@ -213,5 +215,51 @@ $app->post("/views/register", function(){
 	header("Location: /ecommerce/views/checkout");
 	exit;
 });
+
+// Recuperação de senha
+
+$app->get("/views/forgot", function(){
+	$page = new Page();
+	$page->setTpl("forgot");
+});
+
+$app->post("/views/forgot", function(){
+	$user = User::getForgot($_POST["email"], false);
+	header("Location: /ecommerce/views/forgot/sent");
+	exit;
+});
+$app->get("/views/forgot/sent", function(){
+	$page = new Page();
+	$page->setTpl("forgot-sent");
+});
+
+$app->get("/views/forgot/reset", function(){
+
+	$user = User::validForgotDecrypt($_GET["code"]);
+
+	$page = new Page();
+	$page->setTpl("forgot-reset", array(
+		"name"=>$user["desperson"],
+		"code"=>$_GET["code"]
+	));
+});
+
+	$app->post("/views/forgot/reset", function(){
+		$forgot = User::validForgotDecrypt($_POST["code"]);
+
+		User::setForgotUsed($user["idrecovery"]);
+
+		$user = new User();
+		$user->get((int)$forgot["iduser"]);
+
+		$password = password_hash($_POST["passwrd"], PASSWORD_DEFAULT, [
+			"cost"=>12
+		]);
+
+		$user->setPassword($password);
+
+		$page = new Page();
+		$page->setTpl("forgot-reset-sucess");
+	});
 
  ?>
