@@ -30,12 +30,13 @@ CREATE TABLE `tb_addresses` (
   `descity` varchar(32) NOT NULL,
   `desstate` varchar(32) NOT NULL,
   `descountry` varchar(32) NOT NULL,
-  `nrzipcode` int(11) NOT NULL,
+  `deszipcode` char(8) NOT NULL,
+  `desdistrict` varchar(32) NOT NULL,
   `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idaddress`),
   KEY `fk_addresses_persons_idx` (`idperson`),
   CONSTRAINT `fk_addresses_persons` FOREIGN KEY (`idperson`) REFERENCES `tb_persons` (`idperson`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +45,7 @@ CREATE TABLE `tb_addresses` (
 
 LOCK TABLES `tb_addresses` WRITE;
 /*!40000 ALTER TABLE `tb_addresses` DISABLE KEYS */;
+INSERT INTO `tb_addresses` VALUES (1,1,'Quadra AC 2','','BrasÃ­lia','DF','Brasil','71810200','Riacho Fundo I','2019-07-18 20:42:20'),(2,1,'Quadra AC 2','','Brasília','DF','Brasil','7181020','Riacho Fundo I','2019-07-18 20:48:15'),(3,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-18 20:56:30');
 /*!40000 ALTER TABLE `tb_addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +67,7 @@ CREATE TABLE `tb_carts` (
   PRIMARY KEY (`idcart`),
   KEY `FK_carts_users_idx` (`iduser`),
   CONSTRAINT `fk_carts_users` FOREIGN KEY (`iduser`) REFERENCES `tb_users` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +76,7 @@ CREATE TABLE `tb_carts` (
 
 LOCK TABLES `tb_carts` WRITE;
 /*!40000 ALTER TABLE `tb_carts` DISABLE KEYS */;
-INSERT INTO `tb_carts` VALUES (1,'f82s03ke6a43tm291361am1964',NULL,'71810200',98.16,3,'2019-07-15 14:01:19'),(2,'t4d5podvhj4e0f6qut7kqig6ni',1,'09853120',83.36,8,'2019-07-16 14:14:01'),(3,'hcabpnt6i5bkkbtevojn02m70c',7,NULL,NULL,NULL,'2019-07-17 13:52:44');
+INSERT INTO `tb_carts` VALUES (1,'f82s03ke6a43tm291361am1964',NULL,'71810200',98.16,3,'2019-07-15 14:01:19'),(2,'t4d5podvhj4e0f6qut7kqig6ni',1,'09853120',83.36,8,'2019-07-16 14:14:01'),(3,'hcabpnt6i5bkkbtevojn02m70c',7,NULL,NULL,NULL,'2019-07-17 13:52:44'),(4,'2rsllgmivj8brma5k5cm9u40ik',NULL,'09853120',121.12,8,'2019-07-18 14:53:52');
 /*!40000 ALTER TABLE `tb_carts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +98,7 @@ CREATE TABLE `tb_cartsproducts` (
   KEY `FK_cartsproducts_products_idx` (`idproduct`),
   CONSTRAINT `fk_cartsproducts_carts` FOREIGN KEY (`idcart`) REFERENCES `tb_carts` (`idcart`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_cartsproducts_products` FOREIGN KEY (`idproduct`) REFERENCES `tb_products` (`idproduct`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +107,7 @@ CREATE TABLE `tb_cartsproducts` (
 
 LOCK TABLES `tb_cartsproducts` WRITE;
 /*!40000 ALTER TABLE `tb_cartsproducts` DISABLE KEYS */;
-INSERT INTO `tb_cartsproducts` VALUES (1,1,4,'2019-07-15 13:48:45','2019-07-15 16:43:48'),(2,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:28'),(3,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:42'),(4,1,4,'2019-07-15 13:48:54','2019-07-15 16:48:50'),(5,1,4,'2019-07-15 13:48:57','2019-07-15 16:48:53'),(6,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(7,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(8,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(9,1,1,'2019-07-15 15:25:04','2019-07-15 17:02:44'),(10,1,6,'2019-07-15 15:32:51','2019-07-15 18:25:14'),(11,1,4,'2019-07-15 17:30:13','2019-07-15 18:32:57'),(12,1,4,'2019-07-15 17:30:14','2019-07-15 18:42:12'),(13,1,4,'2019-07-15 17:34:34','2019-07-15 20:29:42'),(14,1,4,'2019-07-15 17:40:31','2019-07-15 20:31:50'),(15,1,4,NULL,'2019-07-15 20:34:37'),(16,2,4,NULL,'2019-07-16 14:14:08');
+INSERT INTO `tb_cartsproducts` VALUES (1,1,4,'2019-07-15 13:48:45','2019-07-15 16:43:48'),(2,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:28'),(3,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:42'),(4,1,4,'2019-07-15 13:48:54','2019-07-15 16:48:50'),(5,1,4,'2019-07-15 13:48:57','2019-07-15 16:48:53'),(6,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(7,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(8,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(9,1,1,'2019-07-15 15:25:04','2019-07-15 17:02:44'),(10,1,6,'2019-07-15 15:32:51','2019-07-15 18:25:14'),(11,1,4,'2019-07-15 17:30:13','2019-07-15 18:32:57'),(12,1,4,'2019-07-15 17:30:14','2019-07-15 18:42:12'),(13,1,4,'2019-07-15 17:34:34','2019-07-15 20:29:42'),(14,1,4,'2019-07-15 17:40:31','2019-07-15 20:31:50'),(15,1,4,NULL,'2019-07-15 20:34:37'),(16,2,4,NULL,'2019-07-16 14:14:08'),(17,4,4,'2019-07-18 14:49:04','2019-07-18 14:53:57'),(18,4,4,'2019-07-18 17:41:10','2019-07-18 17:19:56'),(19,4,4,'2019-07-18 17:41:11','2019-07-18 20:23:44'),(20,4,4,NULL,'2019-07-18 20:27:29'),(21,4,6,NULL,'2019-07-18 20:28:13'),(22,4,5,'2019-07-18 17:34:08','2019-07-18 20:28:22');
 /*!40000 ALTER TABLE `tb_cartsproducts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,6 +372,60 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'db_ecommerce'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `sp_addresses_save` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_addresses_save`(
+pidaddress int(11), 
+pidperson int(11),
+pdesaddress varchar(128),
+pdescomplement varchar(32),
+pdescity varchar(32),
+pdesstate varchar(32),
+pdescountry varchar(32),
+pdeszipcode char(8),
+pdesdistrict varchar(32)
+)
+BEGIN
+
+	IF pidaddress > 0 THEN
+		
+		UPDATE tb_addresses
+        SET
+			idperson = pidperson,
+            desaddress = pdesaddress,
+            descomplement = pdescomplement,
+            descity = pdescity,
+            desstate = pdesstate,
+            descountry = pdescountry,
+            deszipcode = pdeszipcode, 
+            desdistrict = pdesdistrict
+		WHERE idaddress = pidaddress;
+        
+    ELSE
+		
+		INSERT INTO tb_addresses (idperson, desaddress, descomplement, descity, desstate, descountry, deszipcode, desdistrict)
+        VALUES(pidperson, pdesaddress, pdescomplement, pdescity, pdesstate, pdescountry, pdeszipcode, pdesdistrict);
+        
+        SET pidaddress = LAST_INSERT_ID();
+        
+    END IF;
+    
+    SELECT * FROM tb_addresses WHERE idaddress = pidaddress;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_carts_save` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -663,4 +719,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-17 11:23:57
+-- Dump completed on 2019-07-18 17:57:16
