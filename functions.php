@@ -14,7 +14,11 @@ function checkLogin($inadmin = true){
 function getUserName(){
 
 	$user = User::getFromSession();
+
 	$user = end($user);
+
+	//var_dump($user);die;
+	return $user['deslogin'];
 	return $user['desperson'];
 }
  ?>
