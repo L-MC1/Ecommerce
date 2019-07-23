@@ -36,7 +36,7 @@ CREATE TABLE `tb_addresses` (
   PRIMARY KEY (`idaddress`),
   KEY `fk_addresses_persons_idx` (`idperson`),
   CONSTRAINT `fk_addresses_persons` FOREIGN KEY (`idperson`) REFERENCES `tb_persons` (`idperson`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `tb_addresses` (
 
 LOCK TABLES `tb_addresses` WRITE;
 /*!40000 ALTER TABLE `tb_addresses` DISABLE KEYS */;
-INSERT INTO `tb_addresses` VALUES (1,1,'Quadra AC 2','','BrasÃ­lia','DF','Brasil','71810200','Riacho Fundo I','2019-07-18 20:42:20'),(2,1,'Quadra AC 2','','Brasília','DF','Brasil','7181020','Riacho Fundo I','2019-07-18 20:48:15'),(3,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-18 20:56:30');
+INSERT INTO `tb_addresses` VALUES (1,1,'Quadra AC 2','','BrasÃ­lia','DF','Brasil','71810200','Riacho Fundo I','2019-07-18 20:42:20'),(2,1,'Quadra AC 2','','Brasília','DF','Brasil','7181020','Riacho Fundo I','2019-07-18 20:48:15'),(3,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-18 20:56:30'),(4,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-23 11:48:26'),(5,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-23 11:50:31'),(6,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-23 17:02:55'),(7,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-23 17:05:03'),(8,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-23 17:22:29'),(9,1,'Avenida Ademar Saraiva Leão','','São Bernardo do Campo','SP','Brasil','09853120','Alvarenga','2019-07-23 17:25:31');
 /*!40000 ALTER TABLE `tb_addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +67,7 @@ CREATE TABLE `tb_carts` (
   PRIMARY KEY (`idcart`),
   KEY `FK_carts_users_idx` (`iduser`),
   CONSTRAINT `fk_carts_users` FOREIGN KEY (`iduser`) REFERENCES `tb_users` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ CREATE TABLE `tb_carts` (
 
 LOCK TABLES `tb_carts` WRITE;
 /*!40000 ALTER TABLE `tb_carts` DISABLE KEYS */;
-INSERT INTO `tb_carts` VALUES (1,'f82s03ke6a43tm291361am1964',NULL,'71810200',98.16,3,'2019-07-15 14:01:19'),(2,'t4d5podvhj4e0f6qut7kqig6ni',1,'09853120',83.36,8,'2019-07-16 14:14:01'),(3,'hcabpnt6i5bkkbtevojn02m70c',7,NULL,NULL,NULL,'2019-07-17 13:52:44'),(4,'2rsllgmivj8brma5k5cm9u40ik',NULL,'09853120',121.12,8,'2019-07-18 14:53:52');
+INSERT INTO `tb_carts` VALUES (1,'f82s03ke6a43tm291361am1964',NULL,'71810200',98.16,3,'2019-07-15 14:01:19'),(2,'t4d5podvhj4e0f6qut7kqig6ni',1,'09853120',83.36,8,'2019-07-16 14:14:01'),(3,'hcabpnt6i5bkkbtevojn02m70c',7,NULL,NULL,NULL,'2019-07-17 13:52:44'),(4,'2rsllgmivj8brma5k5cm9u40ik',NULL,'09853120',121.12,8,'2019-07-18 14:53:52'),(5,'mi60joo09e0q3to8793hqqaeco',1,'09853120',133.36,8,'2019-07-23 11:48:05');
 /*!40000 ALTER TABLE `tb_carts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +98,7 @@ CREATE TABLE `tb_cartsproducts` (
   KEY `FK_cartsproducts_products_idx` (`idproduct`),
   CONSTRAINT `fk_cartsproducts_carts` FOREIGN KEY (`idcart`) REFERENCES `tb_carts` (`idcart`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_cartsproducts_products` FOREIGN KEY (`idproduct`) REFERENCES `tb_products` (`idproduct`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +107,7 @@ CREATE TABLE `tb_cartsproducts` (
 
 LOCK TABLES `tb_cartsproducts` WRITE;
 /*!40000 ALTER TABLE `tb_cartsproducts` DISABLE KEYS */;
-INSERT INTO `tb_cartsproducts` VALUES (1,1,4,'2019-07-15 13:48:45','2019-07-15 16:43:48'),(2,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:28'),(3,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:42'),(4,1,4,'2019-07-15 13:48:54','2019-07-15 16:48:50'),(5,1,4,'2019-07-15 13:48:57','2019-07-15 16:48:53'),(6,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(7,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(8,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(9,1,1,'2019-07-15 15:25:04','2019-07-15 17:02:44'),(10,1,6,'2019-07-15 15:32:51','2019-07-15 18:25:14'),(11,1,4,'2019-07-15 17:30:13','2019-07-15 18:32:57'),(12,1,4,'2019-07-15 17:30:14','2019-07-15 18:42:12'),(13,1,4,'2019-07-15 17:34:34','2019-07-15 20:29:42'),(14,1,4,'2019-07-15 17:40:31','2019-07-15 20:31:50'),(15,1,4,NULL,'2019-07-15 20:34:37'),(16,2,4,NULL,'2019-07-16 14:14:08'),(17,4,4,'2019-07-18 14:49:04','2019-07-18 14:53:57'),(18,4,4,'2019-07-18 17:41:10','2019-07-18 17:19:56'),(19,4,4,'2019-07-18 17:41:11','2019-07-18 20:23:44'),(20,4,4,NULL,'2019-07-18 20:27:29'),(21,4,6,NULL,'2019-07-18 20:28:13'),(22,4,5,'2019-07-18 17:34:08','2019-07-18 20:28:22');
+INSERT INTO `tb_cartsproducts` VALUES (1,1,4,'2019-07-15 13:48:45','2019-07-15 16:43:48'),(2,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:28'),(3,1,4,'2019-07-15 13:48:45','2019-07-15 16:48:42'),(4,1,4,'2019-07-15 13:48:54','2019-07-15 16:48:50'),(5,1,4,'2019-07-15 13:48:57','2019-07-15 16:48:53'),(6,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(7,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(8,1,4,'2019-07-15 15:25:02','2019-07-15 17:01:58'),(9,1,1,'2019-07-15 15:25:04','2019-07-15 17:02:44'),(10,1,6,'2019-07-15 15:32:51','2019-07-15 18:25:14'),(11,1,4,'2019-07-15 17:30:13','2019-07-15 18:32:57'),(12,1,4,'2019-07-15 17:30:14','2019-07-15 18:42:12'),(13,1,4,'2019-07-15 17:34:34','2019-07-15 20:29:42'),(14,1,4,'2019-07-15 17:40:31','2019-07-15 20:31:50'),(15,1,4,NULL,'2019-07-15 20:34:37'),(16,2,4,NULL,'2019-07-16 14:14:08'),(17,4,4,'2019-07-18 14:49:04','2019-07-18 14:53:57'),(18,4,4,'2019-07-18 17:41:10','2019-07-18 17:19:56'),(19,4,4,'2019-07-18 17:41:11','2019-07-18 20:23:44'),(20,4,4,NULL,'2019-07-18 20:27:29'),(21,4,6,NULL,'2019-07-18 20:28:13'),(22,4,5,'2019-07-18 17:34:08','2019-07-18 20:28:22'),(23,5,4,'2019-07-23 14:21:22','2019-07-23 11:48:19'),(24,5,6,'2019-07-23 14:21:32','2019-07-23 17:21:17'),(25,5,8,'2019-07-23 14:21:55','2019-07-23 17:21:39'),(26,5,9,'2019-07-23 14:21:59','2019-07-23 17:21:52'),(27,5,4,'2019-07-23 14:45:13','2019-07-23 17:22:03'),(28,5,4,NULL,'2019-07-23 17:22:15'),(29,5,4,NULL,'2019-07-23 17:22:20');
 /*!40000 ALTER TABLE `tb_cartsproducts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,16 +148,19 @@ CREATE TABLE `tb_orders` (
   `idcart` int(11) NOT NULL,
   `iduser` int(11) NOT NULL,
   `idstatus` int(11) NOT NULL,
+  `idaddress` int(11) NOT NULL,
   `vltotal` decimal(10,2) NOT NULL,
   `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idorder`),
-  KEY `FK_orders_carts_idx` (`idcart`),
   KEY `FK_orders_users_idx` (`iduser`),
   KEY `fk_orders_ordersstatus_idx` (`idstatus`),
+  KEY `fk_orders_carts_idx` (`idcart`),
+  KEY `fk_orders_addresses_idx` (`idaddress`),
+  CONSTRAINT `fk_orders_addresses` FOREIGN KEY (`idaddress`) REFERENCES `tb_addresses` (`idaddress`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_carts` FOREIGN KEY (`idcart`) REFERENCES `tb_carts` (`idcart`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_ordersstatus` FOREIGN KEY (`idstatus`) REFERENCES `tb_ordersstatus` (`idstatus`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_users` FOREIGN KEY (`iduser`) REFERENCES `tb_users` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,6 +169,7 @@ CREATE TABLE `tb_orders` (
 
 LOCK TABLES `tb_orders` WRITE;
 /*!40000 ALTER TABLE `tb_orders` DISABLE KEYS */;
+INSERT INTO `tb_orders` VALUES (1,5,1,1,5,0.00,'2019-07-23 11:50:32'),(2,5,1,1,6,0.00,'2019-07-23 17:02:57'),(3,5,1,1,7,0.00,'2019-07-23 17:05:03'),(4,5,1,1,8,7782.53,'2019-07-23 17:22:30'),(5,5,1,1,9,7782.53,'2019-07-23 17:25:32');
 /*!40000 ALTER TABLE `tb_orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -512,6 +516,60 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_orders_save` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_orders_save`(
+pidorder INT,
+pidcart int(11),
+piduser int(11),
+pidstatus int(11),
+pidaddress int(11),
+pvltotal decimal(10,2)
+)
+BEGIN
+	
+	IF pidorder > 0 THEN
+		
+		UPDATE tb_orders
+        SET
+			idcart = pidcart,
+            iduser = piduser,
+            idstatus = pidstatus,
+            idaddress = pidaddress,
+            vltotal = pvltotal
+		WHERE idorder = pidorder;
+        
+    ELSE
+    
+		INSERT INTO tb_orders (idcart, iduser, idstatus, idaddress, vltotal)
+        VALUES(pidcart, piduser, pidstatus, pidaddress, pvltotal);
+		
+		SET pidorder = LAST_INSERT_ID();
+        
+    END IF;
+    
+    SELECT * 
+    FROM tb_orders a
+    INNER JOIN tb_ordersstatus b USING(idstatus)
+    INNER JOIN tb_carts c USING(idcart)
+    INNER JOIN tb_users d ON d.iduser = a.iduser
+    INNER JOIN tb_addresses e USING(idaddress)
+    WHERE idorder = pidorder;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_products_save` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -719,4 +777,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-18 17:57:16
+-- Dump completed on 2019-07-23 14:46:53
