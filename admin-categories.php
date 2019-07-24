@@ -22,7 +22,7 @@ use \Hcode\Model\Product;
 
 		for ($x = 0; $x < $pagination['pages']; $x++){
 			array_push($pages, [
-				'href'=>'/ecommerce/admin/users?'.http_build_query([
+				'href'=>'/ecommerce/admin/categories?'.http_build_query([
 					'page'=>$x+1,
 					'search'=>$search
 			]),
