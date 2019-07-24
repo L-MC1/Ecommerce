@@ -81,20 +81,7 @@ $app->get("/admin/orders/:idorder", function($idorder){
 		'products'=>$cart->getProducts()
 	]);
 });
-///*
-$app->get("/admin/orders", function(){
 
-	User::verifyLogin();
-
-	$page = new PageAdmin();
-	$page->setTpl("orders", [
-		'orders'=>Order::listAll()
-	]);
-
-});
-//*/
-
-/*
 $app->get("/admin/orders", function(){
 
 	User::verifyLogin();
@@ -129,5 +116,5 @@ $app->get("/admin/orders", function(){
 		"pages"=>$pages
 	]);
 });
-*/
+
  ?>
