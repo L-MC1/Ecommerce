@@ -254,6 +254,22 @@ $app->get("/views/order/:idorder/pagseguro", function($idorder){
 
 });
 
+$app->get("/views/order/:idorder/paypal", function($idorder){
+	User::verifyLogin(false);
+	$order = new Order();
+	$order->get((int)$idorder);
+	$cart = $order->getCart();
+	$page = new Page([
+		'header'=>false,
+		'footer'=>false
+	]);
+	$page->setTpl("payment-paypal", [
+		'order'=>$order->getValues(),
+		'cart'=>$cart->getValues(),
+		'products'=>$cart->getProducts()
+	]);
+});
+
 $app->get("/views/login", function(){
 
 	$page = new Page();
