@@ -215,8 +215,43 @@ $app->post("/views/checkout", function(){
 
 	$order->save();
 
-	header("Location: /ecommerce/views/order/".$order->getidorder());
+	switch ((int)$_POST['payment-method']) {
+
+		case 1:
+		header("Location: /ecommerce/views/order/".$order->getidorder()."/pagseguro");
+		break;
+
+		case 2:
+		header("Location: /ecommerce/views/order/".$order->getidorder()."/paypal");
+		break;
+
+	}
 	exit;
+});
+
+$app->get("/views/order/:idorder/pagseguro", function($idorder){
+
+	User::verifyLogin(false);
+
+	$order = new Order();
+	$order->get((int) $idorder);
+
+	$cart = $order->getCart();
+
+	$page = new Page([
+		'header'=>false,
+		'footer'=>false
+	]);
+	$page->setTpl("payment-pagseguro",[
+		'order'=>$order->getValues(),
+		'cart'=>$cart->getValues(),
+		'products'=>$cart->getProducts(),
+		'phone'=>[
+			'areaCode'=>substr($order->getnrphone(), 0, 2),
+			'number'=>substr($order->getnrphone(), 2, strlen($order->getnrphone()))
+		]
+	]);
+
 });
 
 $app->get("/views/login", function(){
