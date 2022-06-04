@@ -17,13 +17,10 @@
         <div class="row">                
             <div class="col-md-6">
                 <?php if( $error != '' ){ ?>
-
                 <div class="alert alert-danger">
                     <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
-
                 </div>
                 <?php } ?>
-
                 <form action="/ecommerce/views/login" id="login-form-wrap" class="login" method="post">
                     <h2>Acessar</h2>
                     <p class="form-row form-row-first">
@@ -50,13 +47,10 @@
             </div>
             <div class="col-md-6">
                 <?php if( $errorRegister != '' ){ ?>
-
                 <div class="alert alert-danger">
                     <?php echo htmlspecialchars( $errorRegister, ENT_COMPAT, 'UTF-8', FALSE ); ?>
-
                 </div>                
                 <?php } ?>
-
                 <form id="register-form-wrap" action="/ecommerce/views/register" class="register" method="post">
                     <h2>Criar conta</h2>
                     <p class="form-row form-row-first">

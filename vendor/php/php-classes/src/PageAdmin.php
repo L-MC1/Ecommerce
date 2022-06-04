@@ -1,6 +1,6 @@
 <?php 
 
-namespace Hcode;
+namespace Classes;
 
 class PageAdmin extends Page {
 	public function __construct($opts = array(), $tpl_dir = "/ecommerce/views/admin/") {

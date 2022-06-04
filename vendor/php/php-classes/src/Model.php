@@ -1,6 +1,6 @@
 <?php 
 
-namespace Hcode;
+namespace Classes;
 
 class Model {
 	private $values = [];

@@ -1,9 +1,9 @@
 {
-    "name": "L-MC1/ecommerce",
+    "name": "lmc/ecommerce",
     "authors": [
         {
             "name": "L",
-            "email": "suporte@hcode.com.br"
+            "email": "olaeu2112@gmail.com"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
+            "Classes\\": "vendor\\php\\php-classes\\src"
         }
     }
 }

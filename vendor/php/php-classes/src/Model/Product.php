@@ -1,9 +1,9 @@
 <?php 
 
-namespace Hcode\Model;
+namespace Classes\Model;
 
-use \Hcode\DB\Sql;
-use \Hcode\Model;
+use \Classes\DB\Sql;
+use \Classes\Model;
 
 class Product extends Model {
 

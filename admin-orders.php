@@ -1,10 +1,10 @@
 <?php 
 
-use \Hcode\Page;
-use \Hcode\PageAdmin;
-use \Hcode\Model\User;
-use \Hcode\Model\Order;
-use \Hcode\Model\OrderStatus;
+use \Classes\Page;
+use \Classes\PageAdmin;
+use \Classes\Model\User;
+use \Classes\Model\Order;
+use \Classes\Model\OrderStatus;
 
 $app->get("/admin/orders/:idorder/status", function($idorder){
 

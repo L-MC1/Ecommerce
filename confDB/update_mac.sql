@@ -222,7 +222,7 @@ CREATE TABLE `tb_persons` (
 
 LOCK TABLES `tb_persons` WRITE;
 /*!40000 ALTER TABLE `tb_persons` DISABLE KEYS */;
-INSERT INTO `tb_persons` VALUES (1,'JoÃ£o Rangel','admin@hcode.com.br',2147483647,'2017-03-01 03:00:00'),(7,'Suporte','suporte@hcode.com.br',1188555000,'2017-03-15 16:10:27'),(17,'teste','aaaaaaa@gmail.com',11236542587,'2019-07-23 19:39:00');
+INSERT INTO `tb_persons` VALUES (1,'Admin','olaeu2112@gmail.com',2147483647,'2017-03-01 03:00:00'),(7,'Suporte','olaeu2112@gmail.com',1188555000,'2017-03-15 16:10:27'),(17,'teste','aaaaaaa@gmail.com',11236542587,'2019-07-23 19:39:00');
 /*!40000 ALTER TABLE `tb_persons` ENABLE KEYS */;
 UNLOCK TABLES;
 

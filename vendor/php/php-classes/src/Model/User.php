@@ -1,15 +1,15 @@
 <?php 
 
-namespace Hcode\Model;
+namespace Classes\Model;
 
-use \Hcode\DB\Sql;
-use \Hcode\Model;
+use \Classes\DB\Sql;
+use \Classes\Model;
 
 class User extends Model {
 
 	const SESSION = "User";
-	const SECRET = "HcodePhp7_Secret";
-	const SECRET_IV = "HcodePhp7_Secret_IV";
+	const SECRET = "randomsecret1234";
+	const SECRET_IV = "2randomsecret123";
 	const ERROR = "UserError";
 	const ERROR_REGISTER = "UserErrorRegister";
 	const SUCCESS = "UserSucesss";
@@ -172,7 +172,7 @@ class User extends Model {
 					$link = "/ecommerce/views/forgot/reset?code=$code";
 				}
 				
-				$mailer = new Mailer($data['desemail'], $data['desperson'], "Redefinir senha da Hcode store", "forgot", array(
+				$mailer = new Mailer($data['desemail'], $data['desperson'], "Redefinir senha da Exemplo store", "forgot", array(
 					"name"=>$data["desperson"],
 					"link"=>$link
 				));

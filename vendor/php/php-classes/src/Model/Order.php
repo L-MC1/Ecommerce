@@ -1,10 +1,10 @@
 <?php 
 
-namespace Hcode\Model;
+namespace Classes\Model;
 
-use \Hcode\DB\Sql;
-use \Hcode\Model;
-use \Hcode\Model\Cart;
+use \Classes\DB\Sql;
+use \Classes\Model;
+use \Classes\Model\Cart;
 
 class Order extends Model{
 

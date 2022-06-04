@@ -1,13 +1,13 @@
 <?php
 
-use \Hcode\Page;
-use \Hcode\Model\Product;
-use \Hcode\Model\Category;
-use \Hcode\Model\Cart;
-use \Hcode\Model\Address;
-use \Hcode\Model\User;
-use \Hcode\Model\Order;
-use \Hcode\Model\OrderStatus;
+use \Classes\Page;
+use \Classes\Model\Product;
+use \Classes\Model\Category;
+use \Classes\Model\Cart;
+use \Classes\Model\Address;
+use \Classes\Model\User;
+use \Classes\Model\Order;
+use \Classes\Model\OrderStatus;
 
 $app->get('/', function() {
 
@@ -502,13 +502,13 @@ $app->get("/views/forgot/reset", function(){
 		$dadosboleto["endereco2"] = $order->getdescity(). " - ".$order->getdesstate(). " - ".$order->getdescountry(). " ".$order->getdeszipcode();
 
 		// INFORMACOES PARA O CLIENTE
-		$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Hcode E-commerce";
+		$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja E-commerce";
 		$dadosboleto["demonstrativo2"] = "Taxa bancária - R$ 0,00";
 		$dadosboleto["demonstrativo3"] = "";
 		$dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% após o vencimento";
 		$dadosboleto["instrucoes2"] = "- Receber até 10 dias após o vencimento";
-		$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: suporte@hcode.com.br";
-		$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto Loja Hcode E-commerce - www.hcode.com.br";
+		$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: olaeu2112@gmail.com";
+		$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto Loja E-commerce";
 
 		// DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
 		$dadosboleto["quantidade"] = "";
@@ -530,11 +530,11 @@ $app->get("/views/forgot/reset", function(){
 		$dadosboleto["carteira"] = "175";  // Código da Carteira: pode ser 175, 174, 104, 109, 178, ou 157
 
 		// SEUS DADOS
-		$dadosboleto["identificacao"] = "Hcode Treinamentos";
+		$dadosboleto["identificacao"] = "Exemplo";
 		$dadosboleto["cpf_cnpj"] = "24.700.731/0001-08";
 		$dadosboleto["endereco"] = "Rua Ademar Saraiva Leão, 234 - Alvarenga, 09853-120";
 		$dadosboleto["cidade_uf"] = "São Bernardo do Campo - SP";
-		$dadosboleto["cedente"] = "HCODE TREINAMENTOS LTDA - ME";
+		$dadosboleto["cedente"] = "Exemplo LTDA - ME";
 
 		// NÃO ALTERAR!
 		$path = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."ecommerce".DIRECTORY_SEPARATOR."res".DIRECTORY_SEPARATOR."boletophp".DIRECTORY_SEPARATOR."include".DIRECTORY_SEPARATOR;

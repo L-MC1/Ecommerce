@@ -1,7 +1,7 @@
 <?php 
 
-use \Hcode\Model\User;
-use \Hcode\Model\Cart;
+use \Classes\Model\User;
+use \Classes\Model\Cart;
 
 function formatPrice($vlprice){
 

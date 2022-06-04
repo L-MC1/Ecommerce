@@ -7,16 +7,16 @@ namespace Composer\Autoload;
 class ComposerStaticInit972b076f64eaa86f277f9638ca24d04b
 {
     public static $prefixLengthsPsr4 = array (
-        'H' => 
+        'C' => 
         array (
-            'Hcode\\' => 6,
+            'Classes\\' => 8,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Hcode\\' => 
+        'Classes\\' => 
         array (
-            0 => __DIR__ . '/..' . '/hcodebr/php-classes/src',
+            0 => __DIR__ . '/..' . '/php/php-classes/src',
         ),
     );
 
@@ -38,6 +38,7 @@ class ComposerStaticInit972b076f64eaa86f277f9638ca24d04b
     );
 
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
         'PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
         'PHPMailerOAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmaileroauth.php',
