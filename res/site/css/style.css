@@ -29,9 +29,17 @@ h6 {
 body { font-family:Arial, Helvetica, sans-serif; }
 
 
-.hmenu{
-    margin-top: 10px;
+div.hmenu{
+    -ms-flex-align: center;
+    margin-top: 40px;
     margin-bottom: 10px;
+}
+div.logo{
+    float: left;
+}
+img.logo{
+    max-height: 60px;
+    width: auto;
 }
 .header-area {
     background: none repeat scroll 0 0 #f4f4f4;
@@ -86,7 +94,7 @@ z-index: 999;}
 
 .logo h1 {
     font-size: 40px;
-    margin: 30px 0;font-weight: 400;
+    font-weight: 400;
 }
 .logo h1 a {
     color: #999;
