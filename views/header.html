@@ -84,12 +84,6 @@
                         <h1><a href="/ecommerce/"><img src="/ecommerce/res/site/img/logo.png"></a></h1>
                     </div>
                 </div>
-                
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="/ecommerce/views/cart">Carrinho - <span class="cart-amunt">R$ {function="getCartVlSubTotal()"}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{function="getCartNrQtd()"}</span></a>
-                    </div>
-                </div>
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -111,6 +105,11 @@
                         <li><a href="#">Produtos</a></li>
                         <li><a href="/ecommerce/views/cart">Carrinho</a></li>
                     </ul>
+                    <div class="col-sm-6">
+                        <div class="shopping-item" style="margin: 0;">
+                            <a href="/ecommerce/views/cart">Carrinho - <span class="cart-amunt">R$ {function="getCartVlSubTotal()"}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{function="getCartNrQtd()"}</span></a>
+                        </div>
+                    </div>
                 </div>  
             </div>
         </div>
