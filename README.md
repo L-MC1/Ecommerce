@@ -22,7 +22,7 @@ area do usuario:
 - pagina de detalhe dos produtos
 - calculo de frete (API service externo)
 - geração de boleto
-- sistema de pagamento (Paypal)
+- sistema de pagamento (Paypal e Pag seguro)
 - lista de desejos
 
 Obs: em alguns sistemas é necessario editar o .htacess, e dependendo da hospedagem também é necessario editar a classe Mailer (principalmente no Godaddy) host, porta...
